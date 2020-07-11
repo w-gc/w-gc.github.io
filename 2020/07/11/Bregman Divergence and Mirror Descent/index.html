@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/Protocol_of_online_learning_1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/Protocol_of_online_learning_2.jpg">
 <meta property="article:published_time" content="2020-07-11T08:51:12.152Z">
-<meta property="article:modified_time" content="2020-07-11T08:51:37.670Z">
+<meta property="article:modified_time" content="2020-07-11T08:59:44.886Z">
 <meta property="article:author" content="青山白云间">
 <meta property="article:tag" content="优化算法">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-11 16:51:12 / 修改时间：16:51:37" itemprop="dateCreated datePublished" datetime="2020-07-11T16:51:12+08:00">2020-07-11</time>
+              <time title="创建时间：2020-07-11 16:51:12 / 修改时间：16:59:44" itemprop="dateCreated datePublished" datetime="2020-07-11T16:51:12+08:00">2020-07-11</time>
             </span>
 
           
@@ -244,7 +244,7 @@
 <li>将欧几里得距离的平方概括为一类距离，这些距离都具有相似的性质。</li>
 <li>在机器学习、聚类、指数族等方面有很多应用。</li>
 </ul>
-<p><strong>定义1（Bregman divergence）</strong> 函数$\psi : \Omega \rightarrow \reals$满足：<br>a). 严凸<br>b). 连续可微<br>c). 定义在一个封闭的凸集$\Omega$上。<br>那么<code>Bregman散度</code>可以定义为：</p>
+<p><strong>定义1（Bregman divergence）</strong> 函数$\psi : \Omega \rightarrow \mathbb{R}$满足：<br>a). 严凸<br>b). 连续可微<br>c). 定义在一个封闭的凸集$\Omega$上。<br>那么<code>Bregman散度</code>可以定义为：</p>
 <script type="math/tex; mode=display">
 \text{Div}_{\psi} (x, y) = \psi(x) - \psi(y) - \left< \nabla \psi (y), x - y \right>.
 \tag{1}</script><p>即为$\psi$在$x$处的值与$\psi$在$y$周围的一阶泰勒展开式取$x$的值之间的差。</p>
@@ -319,7 +319,7 @@
 <p><strong>例子</strong></p>
 <ul>
 <li>欧式距离。令$\psi(x)=\frac{1}{2}|x|^2$，则$\text{Div}_{\psi}(x,y) = \frac{1}{2} | x - y |^2$。</li>
-<li>$\Omega = \{ x \in \reals_{+}^{n} : \sum_{i} x_i = 1 \}$，且$\psi(x) = \sum_{i} x_i \log x_i$。那么$\text{Div}_{\psi}(x,y) = \sum_{i} x_i \log \frac{x_i}{y_i}, x, y \in \Omega$。这就是所谓的相对熵，或概率分布$x$和$y$之间的Kullback-Leibler散度。</li>
+<li>$\Omega = \{ x \in \mathbb{R}_{+}^{n} : \sum_{i} x_i = 1 \}$，且$\psi(x) = \sum_{i} x_i \log x_i$。那么$\text{Div}_{\psi}(x,y) = \sum_{i} x_i \log \frac{x_i}{y_i}, x, y \in \Omega$。这就是所谓的相对熵，或概率分布$x$和$y$之间的Kullback-Leibler散度。</li>
 <li>$l_p$范式。令$p \geq 1$且$\frac{1}{p} + \frac{1}{q} = 1$，$\psi(x)=\frac{1}{2}|x|_q^2$。那么$\text{Div}_{\psi}(x,y) = \frac{1}{2}|x|_q^2 + \frac{1}{2}|y|_q^2 - \left&lt; x , \nabla \frac{1}{2}|y|_q^2 \right&gt;$。注意$\frac{1}{2}|y|_q^2$不一定是可连续微分的，这就使得这种情况与我们的定义不完全一致。</li>
 </ul>
 <p><strong>Properties of Bregman divergence</strong></p>
@@ -341,7 +341,7 @@
 \tag{2}</script><p><code>8.</code> 特例，如果$\psi$对于某些范式和模数$\sigma$满足：</p>
 <script type="math/tex; mode=display">
 \psi (x) \geq \psi(y) + \left< \nabla \psi(y), x - y\right> + \frac{\sigma}{2} \| x - y \|^2.
-\tag{3}</script><p>则称$\psi$是$\sigma$-<code>强凸函数</code>。需要注意的是，并不需要是欧几里得范式。如果是欧式范式，那么上式条件等价于$\psi(x) - \frac{\sigma}{2} | x |^2$是凸函数。比如，KL散度中的$\psi (x) = \sum_{i} x_i$是在$\Omega = \{ x \in \reals_{+}^{n} : \sum_{i} x_i = 1 \}$上$l_1$范式下的1-强凸函数。当$\psi$是$\sigma$-强凸函数，有：</p>
+\tag{3}</script><p>则称$\psi$是$\sigma$-<code>强凸函数</code>。需要注意的是，并不需要是欧几里得范式。如果是欧式范式，那么上式条件等价于$\psi(x) - \frac{\sigma}{2} | x |^2$是凸函数。比如，KL散度中的$\psi (x) = \sum_{i} x_i$是在$\Omega = \{ x \in \mathbb{R}_{+}^{n} : \sum_{i} x_i = 1 \}$上$l_1$范式下的1-强凸函数。当$\psi$是$\sigma$-强凸函数，有：</p>
 <script type="math/tex; mode=display">
 \text{Div}_{\psi}(x,y) \geq \frac{\sigma}{2} \| x - y \|^2.
 \tag{4}</script><p><em>证明：</em> 根据定义有$\text{Div}_{\psi} (x, y) = \psi(x) - \psi(y) - \left&lt; \nabla \psi (y), x - y \right&gt; \geq \frac{\sigma}{2} | x - y |^2$。</p>
@@ -358,7 +358,8 @@
 <script type="math/tex; mode=display">
 \psi^{**}(y) = \sup_{z \in \Omega} \{ \left< z, y \right> - \psi^{*} (z) \}
 \tag{8}</script><p>在$y$处取得最大值，即$x = \nabla^{<em>} \psi (y)$。因此$(\nabla \psi^{</em>}) (\nabla \psi (x) ) = \nabla \psi^{*} (y) = x$，证毕。</p>
-<p>再证第二等式。根据式(6)有$\psi^{<em>}( \nabla \psi (y) ) = \sup_{z \in \Omega} \{ \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \}$，同样的，令$\frac{\partial}{\partial z} \left( \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \right) =0$，得到$\psi^{</em>}( \nabla \psi (y) ) = \left&lt; y, \nabla \psi (y) \right&gt; - \psi (y)$。同理有$\psi^{*}( \nabla \psi (x) ) = \left&lt; x, \nabla \psi (x) \right&gt; - \psi (x)$。那么</p>
+<p>再证第二等式。根据式(6)有$\psi^{<em>}( \nabla \psi (y) ) = \sup_{z \in \Omega} \{ \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \}$，同样的，令$\frac{\partial}{\partial z} \left( \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \right) =0$，便得到$\psi^{</em>}( \nabla \psi (y) ) = \left&lt; y, \nabla \psi (y) \right&gt; - \psi (y)$。</p>
+<p>同理有$\psi^{*}( \nabla \psi (x) ) = \left&lt; x, \nabla \psi (x) \right&gt; - \psi (x)$。那么</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
     \text{Div}_{\psi^{*}} (\nabla \psi (y), \nabla \psi (x)) &= \psi^{*}(\nabla \psi (y)) - \psi^{*}(\nabla \psi (x)) - \left< \nabla \psi^{*} (\nabla \psi (x)), \nabla \psi (y) - \nabla \psi (x) \right> \\
@@ -385,14 +386,14 @@
 \tag{11}</script><p>上式是非负的，当且仅当$x = \bar{\mu}$时为0。</p>
 <p><code>11.</code> 毕达哥拉斯定理（三点定理）。如果$x^{*}$是$x_0$在凸集$C \in \Omega$的投影：</p>
 <script type="math/tex; mode=display">
-x^{*} = \argmin_{x \in C} \text{Div}_{\psi} (x, x_0).
+x^{*} = argmin_{x \in C} \text{Div}_{\psi} (x, x_0).
 \tag{12}</script><p>那么</p>
 <script type="math/tex; mode=display">
 \text{Div}_{\psi} (y, x_0) \geq \text{Div}_{\psi} (y, x^{*}) + \text{Div}_{\psi} (x^{*}, x_0).
 \tag{13}</script><p>如果是欧式的情况下，上式的意味着$\angle y x^{*} x_0$是钝角。更为一般的情况，为引理1。</p>
 <p><strong>引理1：</strong> 假设$L$是一个合适的函数(proper convex function)，其定义域是一个包含$C$的开集。$L$不一定是可微的。令$x^{*}$为：</p>
 <script type="math/tex; mode=display">
-x^{*} = \argmin_{x \in C} \{ L(x) + \text{Div}_{\psi} (x, x_0) \}.
+x^{*} = argmin_{x \in C} \{ L(x) + \text{Div}_{\psi} (x, x_0) \}.
 \tag{14}</script><p>那么对于任意的$y \in C$,有</p>
 <script type="math/tex; mode=display">
 L(y) + \text{Div}_{\psi} (y, x_0) \geq L(x^{*}) + \text{Div}_{\psi} (x^{*}, x_0) + \text{Div}_{\psi} (y, x^{*}).
@@ -425,20 +426,20 @@ L(y) + \text{Div}_{\psi} (y, x_0) \geq L(x^{*}) + \text{Div}_{\psi} (x^{*}, x_0)
 <script type="math/tex; mode=display">
 \begin{aligned}
     x_{k+\frac{1}{2}} &= x_k - \alpha_k g_k, \quad g_k \in \partial f(x_k) \\
-    x_{k+1} &= \argmin_{x \in C} \frac{1}{2} \| x - x_{k+\frac{1}{2}} \|^2 = \argmin_{x \in C} \frac{1}{2} \| x - \left( x_k - \alpha_k g_k \right) \|^2.
+    x_{k+1} &= argmin_{x \in C} \frac{1}{2} \| x - x_{k+\frac{1}{2}} \|^2 = argmin_{x \in C} \frac{1}{2} \| x - \left( x_k - \alpha_k g_k \right) \|^2.
 \end{aligned}
 \tag{20}</script><p>可以解释如下。用$f$在$x_k$附近的一阶Taylor展开式近似$f$：</p>
 <script type="math/tex; mode=display">
 f(x) \approx f(x_k) + \left< g_k, x - x_k \right>. 
 \tag{21}</script><p>然后用$\frac{1}{2 \alpha_k} | x - x_k |^2$余项作为惩罚项。因此，更新规则是找到下式的极小值：</p>
 <script type="math/tex; mode=display">
-x_{k+1} = \argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + \frac{1}{2 \alpha_k} \| x - x_k \|^2 \right\}.
+x_{k+1} = argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + \frac{1}{2 \alpha_k} \| x - x_k \|^2 \right\}.
 \tag{22}</script><p>上式(22)与式(20)等价。为了将方法推广到欧几里得距离以外，可以直接使用Bregman散度作为余项的量度：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    x_{k + 1} &= \argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + \frac{1}{\alpha_k} \text{Div}_{\psi}(x, x_k) \right\} \\
-    &= \argmin_{x \in C} \left\{ \alpha_k f(x_k) + \alpha_k \left< g_k, x - x_k \right> + \text{Div}_{\psi}(x, x_k)  \right\} \\
-    &= \argmin_{x \in C} \left\{ \left< \alpha_k g_k, x \right> + \text{Div}_{\psi}(x, x_k)  \right\}.
+    x_{k + 1} &= argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + \frac{1}{\alpha_k} \text{Div}_{\psi}(x, x_k) \right\} \\
+    &= argmin_{x \in C} \left\{ \alpha_k f(x_k) + \alpha_k \left< g_k, x - x_k \right> + \text{Div}_{\psi}(x, x_k)  \right\} \\
+    &= argmin_{x \in C} \left\{ \left< \alpha_k g_k, x \right> + \text{Div}_{\psi}(x, x_k)  \right\}.
 \end{aligned}
 \tag{23}</script><p><strong>镜像梯度的解释</strong> </p>
 <p>假设约束集$C$是整个空间（即无约束）。那么我们可以用关于$x$的梯度，寻找最优条件：</p>
@@ -552,9 +553,9 @@ f(x) \leq f(y) + \left< \nabla f(y), x - y \right> + \frac{L}{2} \| x - y \|^2.
 <h3 id="2-1-组合目标函数"><a href="#2-1-组合目标函数" class="headerlink" title="2.1 组合目标函数"></a>2.1 组合目标函数</h3><p>假设目标函数为$h(x) = f(x) + r(x)$，其中$f$是光滑的，而$r(x)$是simple的，比如$| x |_1$。如果直接使用上面的优化方式，可以得到收敛速度为$O(\frac{1}{\sqrt{T}})$，因为$h$不是光滑的。我们希望能够获得光滑时的收敛速度$O(\frac{1}{T})$是可以办到的，因为$r(x)$是简单的函数，只需要扩展式(23)如下：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    x_{k + 1} &= \argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + r(x) + \frac{1}{\alpha_k} \text{Div}_{\psi}(x, x_k) \right\} \\
-    &= \argmin_{x \in C} \left\{ \alpha_k f(x_k) + \alpha_k \left< g_k, x - x_k \right> + r(x) + \text{Div}_{\psi}(x, x_k)  \right\} \\
-    &= \argmin_{x \in C} \left\{ \left< \alpha_k g_k, x \right> + r(x) + \text{Div}_{\psi}(x, x_k)  \right\}.
+    x_{k + 1} &= argmin_{x \in C} \left\{ f(x_k) + \left< g_k, x - x_k \right> + r(x) + \frac{1}{\alpha_k} \text{Div}_{\psi}(x, x_k) \right\} \\
+    &= argmin_{x \in C} \left\{ \alpha_k f(x_k) + \alpha_k \left< g_k, x - x_k \right> + r(x) + \text{Div}_{\psi}(x, x_k)  \right\} \\
+    &= argmin_{x \in C} \left\{ \left< \alpha_k g_k, x \right> + r(x) + \text{Div}_{\psi}(x, x_k)  \right\}.
 \end{aligned}
 \tag{44}</script><p>这里我们只采用了$f$在$x_k$附近的一阶近似，不考虑$r(x)$。假设这个近似操作可以有效地计算，那么我们就可以证明上述的速率都能延续。</p>
 <p>这里考虑更为一般的情况，即$f$是非光滑或者强凸的，如果$f$的梯度是Lipschitz连续，依然能够获得$O(\frac{1}{T^2})$的收敛速度。</p>
@@ -582,7 +583,7 @@ f(x_{k}) + r(x_{k+1}) - f(x^{*}) - f(r(x^{*}) \leq \frac{1}{\alpha_k} ( \delta_k
 \leq & R^2 \left( \frac{1}{\alpha_1} + \sum_{k=2}^{T} \left( \frac{1}{\alpha_k} - \frac{1}{\alpha_{k-1}} \right) \right) + \frac{ G^2 }{2 \sigma} \sum_{k=1}^{T} \alpha_k \\
 = & \frac{R^2}{\alpha_T} + \frac{ G^2 }{2 \sigma} \sum_{k=1}^{T} \alpha_k.
 \end{aligned}
-\tag{48}</script><p>假设选择$x_1 = \argmin_{x} r(X)$，那么有$r(x_{T+1}) - r(x_1) \geq 0$。令$\alpha_k = \frac{R}{G} \sqrt{\frac{\sigma}{k}}$，则有：</p>
+\tag{48}</script><p>假设选择$x_1 = argmin_{x} r(X)$，那么有$r(x_{T+1}) - r(x_1) \geq 0$。令$\alpha_k = \frac{R}{G} \sqrt{\frac{\sigma}{k}}$，则有：</p>
 <script type="math/tex; mode=display">
 \sum_{k=1}^{T} \left( h(x_k) - h(x^{*}) \right) \leq \frac{RG}{\sqrt{\sigma}} \left( \sqrt(T) + \frac{1}{2} \sum_{k=1}^{T} \frac{1}{\sqrt{k}} \right) = \frac{RG}{\sqrt{\sigma}} O(\sqrt{T}).
 \tag{49}</script><p>因此$\min_{k=1,\cdots,T} \{ h(x_k) - h(x^{*}) \}$的收敛速度为$O(\frac{RG}{\sqrt{\sigma}T})$。</p>
@@ -593,7 +594,7 @@ f(x_{k}) + r(x_{k+1}) - f(x^{*}) - f(r(x^{*}) \leq \frac{1}{\alpha_k} ( \delta_k
 \text{Regret} = \sum_{k=1}^Tf_k (x_k) - \min_{x} \sum_{k=1}^{T} f_k (x).
 \tag{50}</script><p>需要注意的是，没有假设对手如何选$f_k$，可以对立。在第$k$次迭代获得$f_k$后，使用mirror descent对$f_k$进行更新获得$x_{k+1}$：</p>
 <script type="math/tex; mode=display">
-x_{k+1} = \argmin_{x \in C} \left\{ f_k(x_k) + \left< g_k, x - x_k \right> + \frac{1}{\alpha_k} \text{Div}(x, x_k) \right\}, \quad g_k \in \partial f_x (x_k).
+x_{k+1} = argmin_{x \in C} \left\{ f_k(x_k) + \left< g_k, x - x_k \right> + \frac{1}{\alpha_k} \text{Div}(x, x_k) \right\}, \quad g_k \in \partial f_x (x_k).
 \tag{51}</script><p>可以推得regret有界。由式(33)有：</p>
 <script type="math/tex; mode=display">
 f_k(x_k) - f_k(x^{*}) \leq \frac{1}{\alpha_k} \left( \text{Div}(x^{*}, x_k) - \text{Div}(x^{*}, x_{k+1}) \right) + \frac{\alpha_k}{2 \sigma} \| g_k \|_{*}^{2}.
@@ -605,11 +606,11 @@ f_k(x_k) - f_k(x^{*}) \leq \frac{1}{\alpha_k} \left( \text{Div}(x^{*}, x_k) - \t
 <p><strong>$f$的梯度是Lipschitz连续</strong> 式(43)的结果无法推广到在线学习的情况，如果用$f_k$代替$f$，那么会得到等式右边有$f_k(x_{k+1}) - f_k (x^{*})$。递推求和无法得到regret的界。因此，梯度的Lipschitz连续无法保证regret的界为$O(\log T)$。</p>
 <p><strong>组合目标函数</strong> 在在线设定中，玩家和对手都有$r(x)$，对手在每次迭代时改变$f_k(x)$。每次迭代的目标函数是$h_k(x_k) = f_k(x_k) + r(x_k)$。更新规则为：</p>
 <script type="math/tex; mode=display">
-x_{k+1} = \argmin_{x \in C} \left\{ f_k(x_k) + \left< g_k, x - x_k \right>  + r(x) + \frac{1}{\alpha_k} \text{Div}(x, x_k) \right\}, \quad g_k \in \partial f_x (x_k).
+x_{k+1} = argmin_{x \in C} \left\{ f_k(x_k) + \left< g_k, x - x_k \right>  + r(x) + \frac{1}{\alpha_k} \text{Div}(x, x_k) \right\}, \quad g_k \in \partial f_x (x_k).
 \tag{54}</script><p>那么式(47)变为：</p>
 <script type="math/tex; mode=display">
 f_k(x_{k}) + r(x_{k+1}) - f_k(x^{*}) - f_k(r(x^{*}) \leq \frac{1}{\alpha_k} ( \delta_k - \delta_{k+1} ) + \frac{ \alpha_k }{2 \sigma} \| g_{k} \|_{*}^2.
-\tag{55}</script><p>虽然我们这里用的是$r(x_{k+1})$，而不是$r(x_k)$，但这是没有问题的，因为$r$不会通过迭代而改变。<br>选择$x_1 = \argmin_{x} r(x)$，同式(48,49)有：</p>
+\tag{55}</script><p>虽然我们这里用的是$r(x_{k+1})$，而不是$r(x_k)$，但这是没有问题的，因为$r$不会通过迭代而改变。<br>选择$x_1 = argmin_{x} r(x)$，同式(48,49)有：</p>
 <script type="math/tex; mode=display">
 \sum_{k=1}^{T} \left( h_k(x_k) - h_k(x^{*}) \right) \leq \frac{G}{\sqrt{\sigma}} O(\sqrt{T}).
 \tag{56}</script><p>因此，有$O(\sqrt{T})$。</p>
