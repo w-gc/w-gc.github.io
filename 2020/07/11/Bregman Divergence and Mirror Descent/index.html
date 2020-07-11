@@ -20,28 +20,36 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="青山白云间的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Bregman Divergence and Mirror Descent [1] Bregman Divergence and Mirror Descent   I. Bregman Divergence动机  将欧几里得距离的平方概括为一类距离，这些距离都具有相似的性质。 在机器学习、聚类、指数族等方面有很多应用。  定义1（Bregman divergence） 函数$\psi : \Ome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bregman Divergence and Mirror Descent">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/index.html">
 <meta property="og:site_name" content="青山白云间的博客">
+<meta property="og:description" content="Bregman Divergence and Mirror Descent [1] Bregman Divergence and Mirror Descent   I. Bregman Divergence动机  将欧几里得距离的平方概括为一类距离，这些距离都具有相似的性质。 在机器学习、聚类、指数族等方面有很多应用。  定义1（Bregman divergence） 函数$\psi : \Ome">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/Protocol_of_online_learning_1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/Protocol_of_online_learning_2.jpg">
+<meta property="article:published_time" content="2020-07-11T08:51:12.152Z">
+<meta property="article:modified_time" content="2020-07-11T08:51:37.670Z">
 <meta property="article:author" content="青山白云间">
+<meta property="article:tag" content="优化算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/Protocol_of_online_learning_1.jpg">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>青山白云间的博客</title>
+  <title>Bregman Divergence and Mirror Descent | 青山白云间的博客</title>
   
 
 
@@ -182,9 +190,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -200,10 +209,9 @@
       <meta itemprop="name" content="青山白云间的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/" class="post-title-link" itemprop="url">Bregman Divergence and Mirror Descent</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Bregman Divergence and Mirror Descent
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -227,7 +235,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Bregman-Divergence-and-Mirror-Descent"><a href="#Bregman-Divergence-and-Mirror-Descent" class="headerlink" title="Bregman Divergence and Mirror Descent"></a>Bregman Divergence and Mirror Descent</h1><blockquote>
+        <h1 id="Bregman-Divergence-and-Mirror-Descent"><a href="#Bregman-Divergence-and-Mirror-Descent" class="headerlink" title="Bregman Divergence and Mirror Descent"></a>Bregman Divergence and Mirror Descent</h1><blockquote>
 <p>[1] <a href="http://users.cecs.anu.edu.au/~xzhang/teaching/bregman.pdf" target="_blank" rel="noopener">Bregman Divergence and Mirror Descent</a></p>
 </blockquote>
 <hr>
@@ -640,113 +648,33 @@ F(\hat{x}) - \min_{x} F(x) \leq \frac{R_{T+1}}{T + 1} \log \frac{1}{\sigma}.
 = & \min_{x} F(x) + \frac{R_{T+1}}{T + 1}.
 \end{aligned}
 \tag{62}</script>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="tag"># 优化算法</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/11/SOBOLEV%20GRADIENT/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="青山白云间">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青山白云间的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/11/SOBOLEV%20GRADIENT/" class="post-title-link" itemprop="url">Sobolev 梯度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-11 16:20:08 / 修改时间：16:48:45" itemprop="dateCreated datePublished" datetime="2020-07-11T16:20:08+08:00">2020-07-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Sobolev-GRADIENT"><a href="#Sobolev-GRADIENT" class="headerlink" title="Sobolev GRADIENT"></a>Sobolev GRADIENT</h1><blockquote>
-<p>翻译自 <a href="pu.edu.pk/images/journal/maths/PDF/Paper-11-48-2-16.pdf">Application of Sobolev Gradient Method to Solve Klein Gordon Equation</a></p>
-</blockquote>
-<p>实值$C^1$函数$F$在$\mathbb{R}^n$上的梯度$\nabla F$，其中$n$为正整数，由下式给出：</p>
-<script type="math/tex; mode=display">
-\lim_{t \rightarrow 0} \frac{1}{t} \left( F \left( x + t h \right) - F \left( x \right) \right) = F'(x) h = \left< h, \nabla F(x) \right>_{\mathbb{R}^n} \quad x, h \in \mathbb{R}^n.
-\tag{1}</script><p>记$\left&lt; \cdot, \cdot \right&gt;_{S}$是$\mathbb{R}^n$上一个不同于标准内积$\left&lt; \cdot, \cdot \right&gt;_{\mathbb{R}^n}$的内积。那么，存在一个函数$\nabla_S F: \mathbb{R}^n \rightarrow \mathbb{R}^n$，使得</p>
-<script type="math/tex; mode=display">
-F'(x)h = \left< h, \nabla_S F(x) \right>_S \quad x, h \in \mathbb{R}^n.
-\tag{2}</script><p>线性函数$F’(x)$可以用$\mathbb{R}^n$上的任意内积表示。那么$\nabla_S F(x)$就是函数$F$在内积为$\left&lt; \cdot, \cdot \right&gt;_{S}$下的梯度。考虑线性变换$A : \mathbb{R}^n \rightarrow \mathbb{R}^n$，那么两个内积的关系为：</p>
-<script type="math/tex; mode=display">
-\left< x, y \right>_{S} = \left< x, Ay \right>_{\mathbb{R}^n} \quad x, y \in \mathbb{R}^n.
-\tag{3}</script><p>则两个梯度的关系为：</p>
-<script type="math/tex; mode=display">
-\left( \nabla_S F \right) (x) = A^{-1} \nabla F (x) , x \in \mathbb{R}^n \quad x \in \mathbb{R}^n.
-\tag{4}</script><p>对于每个$x \in \mathbb{R}^n$在$\mathbb{R}^n$中都存在内积$\left&lt; \cdot, \cdot \right&gt;_{x}$。对于每个$x \in \mathbb{R}^n$，定义$\nabla_x F : \mathbb{R}^n \rightarrow \mathbb{R}^n$为：</p>
-<script type="math/tex; mode=display">
-F' (x) h = \left< h, \nabla_x F(x) \right>_x \quad \text{for } x, h \in \mathbb{R}^n.
-\tag{5}</script><p>$F$的梯度有很多种，这取决于度量的选择，而这些梯度具有非常不同的数值特性。这种定义在有限或无限维Sobolev空间中的函数梯度，称为<code>Sobolev梯度</code>。最速下降可以分为两种类型：离散最速下降和连续最速下降。</p>
-<p>设$\nabla_S F$为实值$C^1$函数$F$在Hilbert空间$H$上对为内积$\left&lt; \cdot, \cdot \right&gt;_S$的梯度。离散最速下降可以看作是，给定初始点$x_0$，构造一个序列$\{ x_k \}$：</p>
-<script type="math/tex; mode=display">
-x_k = x_{k-1} - \delta_k \left( \nabla F \right) ( x_{k-1} ), k = 1, 2, \cdots.
-\tag{6}</script><p>其中：</p>
-<script type="math/tex; mode=display">
-\delta_k = \min_{\delta} F \left( x_{k-1} - \delta \left( \nabla F \right) ( x_{k-1} ) \right).
-\tag{7}</script><p>连续最速下降是一个构造函数$z : [ 0, \infty ) \rightarrow H$：</p>
-<script type="math/tex; mode=display">
-\frac{\mathrm{d} z}{\mathrm{d} t} = - \nabla F \left( z(t) \right), z(0) = z_{\text{initial}}.
-\tag{8}</script><p>$z(t) \rightarrow z_{\infty}$在$F$上的合适条件下，其中$F(z_{\infty})$是$F$的最小值。</p>
-<p>离散最速下降的极限情况可以看作是连续最速下降，因此，我们可以把(6)看作是近似求解(8)的数值方案。 连续最速下降给出了一个理论起点，证明离散最速下降的收敛性。</p>
-<p>考虑式(6)，当$u = \lim_{k \rightarrow \infty} x_k$，满足</p>
-<script type="math/tex; mode=display">
-F(u) = 0 \text{ or } (\nabla_S F) (u) = 0.
-\tag{9}</script><p>同样，对于(8)，$u = \lim_{t \rightarrow \infty} x_t$亦满足(9)。</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/11/SOBOLEV%20GRADIENT/" rel="prev" title="Sobolev 梯度">
+      <i class="fa fa-chevron-left"></i> Sobolev 梯度
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -799,6 +727,7 @@ F(u) = 0 \text{ or } (\nabla_S F) (u) = 0.
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bregman-Divergence-and-Mirror-Descent"><span class="nav-number">1.</span> <span class="nav-text">Bregman Divergence and Mirror Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-Bregman-Divergence"><span class="nav-number">1.1.</span> <span class="nav-text">I. Bregman Divergence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II-Mirror-Descent"><span class="nav-number">1.2.</span> <span class="nav-text">II. Mirror Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-组合目标函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 组合目标函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-在线学习"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 在线学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-随机优化"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 随机优化</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
