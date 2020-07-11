@@ -46,7 +46,7 @@ F(u) = 0 \text{ or } (\nabla_S F) (u) = 0.
     <title>Bregman Divergence and Mirror Descent</title>
     <url>/2020/07/11/Bregman%20Divergence%20and%20Mirror%20Descent/</url>
     <content><![CDATA[<h1 id="Bregman-Divergence-and-Mirror-Descent"><a href="#Bregman-Divergence-and-Mirror-Descent" class="headerlink" title="Bregman Divergence and Mirror Descent"></a>Bregman Divergence and Mirror Descent</h1><blockquote>
-<p>[1] <a href="http://users.cecs.anu.edu.au/~xzhang/teaching/bregman.pdf" target="_blank" rel="noopener">Bregman Divergence and Mirror Descent</a></p>
+<p>翻译自 <a href="http://users.cecs.anu.edu.au/~xzhang/teaching/bregman.pdf" target="_blank" rel="noopener">Bregman Divergence and Mirror Descent</a></p>
 </blockquote>
 <hr>
 <h2 id="I-Bregman-Divergence"><a href="#I-Bregman-Divergence" class="headerlink" title="I. Bregman Divergence"></a>I. Bregman Divergence</h2><p><strong>动机</strong></p>
@@ -168,8 +168,7 @@ F(u) = 0 \text{ or } (\nabla_S F) (u) = 0.
 <script type="math/tex; mode=display">
 \psi^{**}(y) = \sup_{z \in \Omega} \{ \left< z, y \right> - \psi^{*} (z) \}
 \tag{8}</script><p>在$y$处取得最大值，即$x = \nabla^{<em>} \psi (y)$。因此$(\nabla \psi^{</em>}) (\nabla \psi (x) ) = \nabla \psi^{*} (y) = x$，证毕。</p>
-<p>再证第二等式。根据式(6)有$\psi^{<em>}( \nabla \psi (y) ) = \sup_{z \in \Omega} \{ \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \}$，同样的，令$\frac{\partial}{\partial z} \left( \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \right) =0$，便得到$\psi^{</em>}( \nabla \psi (y) ) = \left&lt; y, \nabla \psi (y) \right&gt; - \psi (y)$。</p>
-<p>同理有$\psi^{*}( \nabla \psi (x) ) = \left&lt; x, \nabla \psi (x) \right&gt; - \psi (x)$。那么</p>
+<p>再证第二等式。根据式(6)有$\psi^{<em>}( \nabla \psi (y) ) = \sup_{z \in \Omega} \{ \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \}$，同样的，令$\frac{\partial}{\partial z} \left( \left&lt; z, \nabla \psi (y) \right&gt; - \psi (z) \right) =0$，便得到$\psi^{</em>}( \nabla \psi (y) ) = \left&lt; y, \nabla \psi (y) \right&gt; - \psi (y)$。同理有$\psi^{*}( \nabla \psi (x) ) = \left&lt; x, \nabla \psi (x) \right&gt; - \psi (x)$。那么</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
     \text{Div}_{\psi^{*}} (\nabla \psi (y), \nabla \psi (x)) &= \psi^{*}(\nabla \psi (y)) - \psi^{*}(\nabla \psi (x)) - \left< \nabla \psi^{*} (\nabla \psi (x)), \nabla \psi (y) - \nabla \psi (x) \right> \\
